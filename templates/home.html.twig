@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+<h1 class="home">Bienvenue !</h1><br>
+
+<h2>Mon profil ! ✅</h2>
+<div class="divForm"><form class="formLogin"  method="post">
+        <div class="lblName"><label  for="username">prénom : </label></div>
+        <div class="inputName"> <input type="text" name="_username" id="username"></div></br>
+
+        <div class="lblName"><label  for="username">pseudo : </label></div>
+        <div class="inputName"> <input type="text" name="_username" id="username"></div></br>
+
+        <div class="lblName"><label  for="Nom">Nom : </label></div>
+        <div class="inputName"> <input type="text" name="_Nom" id="username"></div></br>
+
+        <div class="lblName"><label  for="telephone">télélphone : </label></div>
+        <div class="inputName"> <input type="text" name="_username" id="username"></div></br>
+
+        <div class="lblName"><label  for="mail">Mail : </label></div>
+        <div class="inputName"> <input type="text" name="_mail" id="mail"></div></br>
+
+        <div class="lblName"><label  for="campus">campus : </label></div>
+        <div class="inputName"> <input type="text" name="_campus" id="campus"></div></br>
+
+        <div class="lblPassword"><label for="password">Password : </label></div>
+        <div class="inputPassword"><input  type="password" name="_password" id="password"></div></br>
+
+        <button class="btnLogin" type="submit">login</button>
+
+    </form></div>
+
+{% endblock %}
