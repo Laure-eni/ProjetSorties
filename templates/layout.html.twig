@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Sorties !{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{  asset("css/app.css") }}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Sorties</h1>
+        {% include('inc/nav.html.twig') %}
+    </header>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        &copy; {{ "now"|date("Y") }} sortir.com
+    </footer>
+</div>
+
+</body>
+</html>
