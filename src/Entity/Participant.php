@@ -245,15 +245,18 @@ class Participant implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
+        return ["ROLE_USER"];
     }
 
     public function getPassword()
     {
         // TODO: Implement getPassword() method.
+        return $this->motDePasse;
     }
 
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+        return $this->nom;
     }
 }
