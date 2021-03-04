@@ -18,10 +18,31 @@ use Doctrine\ORM\Mapping as ORM;
         private $id;
 
         /**
+         * @return mixed
+         */
+        public function getSortie()
+        {
+            return $this->sortie;
+        }
+
+        /**
+         * @param mixed $sortie
+         */
+        public function setSortie($sortie): void
+        {
+            $this->sortie = $sortie;
+        }
+
+        /**
          * @ORM\Column(type="string", length=255, nullable=false)
          */
 
         private $libelle;
+
+        /**
+         * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="etat")
+         */
+        private $sortie;
 
         public function getId(): ?int
         {

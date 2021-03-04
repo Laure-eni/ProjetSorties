@@ -22,7 +22,31 @@ class Campus
      */
     private $nomCampus;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Participant", mappedBy="noCampus")
+     */
+    private $etudiant;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="campusSortie")
+     */
+    private $cpSortie;
+
+    /**
+     * @return mixed
+     */
+    public function getCpSortie()
+    {
+        return $this->cpSortie;
+    }
+
+    /**
+     * @param mixed $cpSortie
+     */
+    public function setCpSortie($cpSortie): void
+    {
+        $this->cpSortie = $cpSortie;
+    }
 
     /**
      * @return mixed

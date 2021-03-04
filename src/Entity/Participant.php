@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ParticipantsRepository;
+use App\Repository\ParticipantRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ParticipantsRepository::class)
+ * @ORM\Entity(repositoryClass=ParticipantRepository::class)
  */
-class Participants
+class Participant
 {
     /**
      * @ORM\Id
@@ -48,14 +48,56 @@ class Participants
     private $motDePasse;
 
     /**
+     * @return mixed
+     */
+    public function getSortieCreee()
+    {
+        return $this->sortieCreee;
+    }
+
+    /**
+     * @param mixed $sortieCreee
+     */
+    public function setSortieCreee($sortieCreee): void
+    {
+        $this->sortieCreee = $sortieCreee;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInscription()
+    {
+        return $this->inscription;
+    }
+
+    /**
+     * @param mixed $inscription
+     */
+    public function setInscription($inscription): void
+    {
+        $this->inscription = $inscription;
+    }
+
+    /**
      * @ORM\Column (type="string")
      */
     private $administrateur;
 
     /**
-     * @ORM\Column (type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Campus", inversedBy="etudiant")
      */
     private $noCampus;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="organisateur")
+     */
+    private $sortieCreee;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sortie", mappedBy="inscrits")
+     */
+    private $inscription;
 
 
 

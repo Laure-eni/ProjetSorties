@@ -18,6 +18,32 @@ class Categorie
     private $id;
 
     /**
+     * @ORM\Column (type = "string", length = 150, nullable = false)
+     */
+    private $catName;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="categorie")
+     */
+    private $sortie;
+
+    /**
+     * @return mixed
+     */
+    public function getSortie()
+    {
+        return $this->sortie;
+    }
+
+    /**
+     * @param mixed $sortie
+     */
+    public function setSortie($sortie): void
+    {
+        $this->sortie = $sortie;
+    }
+
+    /**
      * @return mixed
      */
     public function getCatName()
@@ -33,10 +59,6 @@ class Categorie
         $this->catName = $catName;
     }
 
-    /**
-     * @ORM\Column (type = "string", length = 150, nullable = false)
-     */
-    private $catName;
 
     public function getId(): ?int
     {

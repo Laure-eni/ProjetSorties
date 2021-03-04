@@ -35,6 +35,27 @@ class Ville
     /**
      * @return mixed
      */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param mixed $lieu
+     */
+    public function setLieu($lieu): void
+    {
+        $this->lieu = $lieu;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Lieu", mappedBy="ville")
+     */
+    private $lieu;
+
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;

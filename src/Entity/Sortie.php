@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SortiesRepository;
+use App\Repository\SortieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SortiesRepository::class)
+ * @ORM\Entity(repositoryClass=SortieRepository::class)
  */
-class Sorties
+class Sortie
 {
     /**
      * @ORM\Id
@@ -28,7 +28,7 @@ class Sorties
     private $dateHeureDebut;
 
     /**
-     * @ORM\Column (type="integer" nullable=false)
+     * @ORM\Column (type="integer", nullable=false)
      */
     private $duree;
 
@@ -38,7 +38,7 @@ class Sorties
     private $dateLimiteInscription;
 
     /**
-     * @ORM\Column (type="integer", nullable=false)
+     * @ORM\Column (type="integer", nullable=true)
      */
     private $nbInscriptionsMax;
 
@@ -48,17 +48,130 @@ class Sorties
     private $infosSortie;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etat", inversedBy="sortie")
      */
     private $etat;
 
     /**
-     * @ORM\Column("integer", nulable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Campus", inversedBy="cpSortie")
      */
-    private $idCategorie;
-    public function getId(): ?int
+    private $campusSortie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Participant", inversedBy="sortieCreee")
+     */
+    private $organisateur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Participant", inversedBy="inscription")
+     * @ORM\JoinTable(name="participation")
+     */
+    private $inscrits;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="sortie")
+     */
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lieu", inversedBy="sortie")
+     */
+    private $lieu;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampusSortie()
+    {
+        return $this->campusSortie;
+    }
+
+    /**
+     * @param mixed $campusSortie
+     */
+    public function setCampusSortie($campusSortie): void
+    {
+        $this->campusSortie = $campusSortie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrganisateur()
+    {
+        return $this->organisateur;
+    }
+
+    /**
+     * @param mixed $organisateur
+     */
+    public function setOrganisateur($organisateur): void
+    {
+        $this->organisateur = $organisateur;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInscrits()
+    {
+        return $this->inscrits;
+    }
+
+    /**
+     * @param mixed $inscrits
+     */
+    public function setInscrits($inscrits): void
+    {
+        $this->inscrits = $inscrits;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie): void
+    {
+        $this->categorie = $categorie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param mixed $lieu
+     */
+    public function setLieu($lieu): void
+    {
+        $this->lieu = $lieu;
     }
 
     /**
@@ -173,21 +286,6 @@ class Sorties
         $this->etat = $etat;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdCategorie()
-    {
-        return $this->idCategorie;
-    }
-
-    /**
-     * @param mixed $idCategorie
-     */
-    public function setIdCategorie($idCategorie): void
-    {
-        $this->idCategorie = $idCategorie;
-    }
 
 
 
