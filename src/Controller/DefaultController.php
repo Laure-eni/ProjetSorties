@@ -8,10 +8,23 @@ class DefaultController extends AbstractController
 {
 
     /**
-     * @Route("/", name="connexion")
+     * @Route ("/", name="login")
      */
-    public function connexion()
+
+    public function login()
     {
         return $this->render("connexion.html.twig");
     }
+
+    /**
+     * @Route ("/home", name="home")
+     */
+
+    public function home()
+    {
+        return $this->render("home.html.twig");
+    }
+
+
+
 }
