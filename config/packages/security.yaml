@@ -4,7 +4,7 @@ security:
         our_db_provider:
             entity:
                 class: App\Entity\Participant
-                property: nom
+                property: mail
 
     firewalls:
         main:
@@ -14,12 +14,18 @@ security:
             form_login:
                 login_path: login
                 check_path: login
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 3153600
+                path: /
+
             logout:
                 path: logout
-                target: default_home
+                target: home
 
     encoders:
-        App\Entity\Participant: plaintext
+        App\Entity\Participant:
+            algorithm: plaintext
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
