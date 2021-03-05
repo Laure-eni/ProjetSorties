@@ -1,0 +1,31 @@
+security:
+
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\Participant
+                property: mail
+
+    firewalls:
+        main:
+            pattern: ^/
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 3153600
+                path: /
+
+            logout:
+                path: logout
+                target: home
+
+    encoders:
+        App\Entity\Participant:
+            algorithm: plaintext
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }

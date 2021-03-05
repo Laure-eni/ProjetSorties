@@ -5,13 +5,15 @@
 
     <h2>Formulaire de connexion ! ✅</h2>
     <div class="divForm"><form class="formLogin"  method="post">
-            <div class="lblName"><label  for="nom">prénom : </label></div>
-            <div class="inputName"> <input type="text" name="_username" id="nom"></div></br>
+            <div class="lblName"><label  for="mail">mail : </label></div>
+            <div class="inputName"> <input type="text" name="_username" id="mail"></div></br>
 
             <div class="lblPassword"><label for="motDePasse">Password : </label></div>
             <div class="inputPassword"><input  type="password" name="_password" id="motDePasse"></div></br>
 
-            <button class="btnLogin" type="submit">login</button>
+            <button class="btnLogin" type="submit">login</button></br>
+            <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+            <label for="remember_me">Keep me logged in</label>
 
         </form></div>
 {% endblock %}
