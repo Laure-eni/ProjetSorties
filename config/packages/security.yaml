@@ -1,0 +1,25 @@
+security:
+
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\Participant
+                property: nom
+
+    firewalls:
+        main:
+            pattern: ^/
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path: logout
+                target: default_home
+
+    encoders:
+        App\Entity\Participant: plaintext
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
