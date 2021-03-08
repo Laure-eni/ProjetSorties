@@ -82,7 +82,7 @@ class Participant implements UserInterface
     }
 
     /**
-     * @ORM\Column (type="string")
+     * @ORM\Column (type="boolean")
      */
     private $administrateur;
 
