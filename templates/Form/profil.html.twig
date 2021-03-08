@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ asset("css/app.css") }} ">
+    <h2 class="titreProfil">Mon profil</h2>
+
+   <div class="formProfil">{{ form_start(ProfilForm) }}
+
+    {{ form_widget(ProfilForm) }}
+
+    <br><button type="submit" class="btn">Modifier</button>
+
+    {{ form_end(ProfilForm) }}
+   </div><br>
+
+    {% for message in app.flashes('success') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block title %}Mon profil | {{ parent() }}{% endblock %}
