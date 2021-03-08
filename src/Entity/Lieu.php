@@ -34,11 +34,6 @@ class Lieu
     private $rue;
 
     /**
-     * @ORM\Column (type="text")
-     */
-    private $codePostal;
-
-    /**
      * @return mixed
      */
     public function getSortie()
@@ -110,22 +105,6 @@ class Lieu
     public function setRue($rue): void
     {
         $this->rue = $rue;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodePostal()
-    {
-        return $this->codePostal;
-    }
-
-    /**
-     * @param mixed $codePostal
-     */
-    public function setCodePostal($codePostal): void
-    {
-        $this->codePostal = $codePostal;
     }
 
     /**
