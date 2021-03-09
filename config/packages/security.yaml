@@ -14,7 +14,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-                default_target_path: sortie
+                default_target_path: home
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 3153600
@@ -30,4 +30,4 @@ security:
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/sortie, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/home, roles: IS_AUTHENTICATED_FULLY }
