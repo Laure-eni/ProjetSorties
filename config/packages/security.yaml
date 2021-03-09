@@ -14,7 +14,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-                default_target_path: Profil
+                default_target_path: sortie
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 3153600
@@ -22,7 +22,7 @@ security:
 
             logout:
                 path: logout
-                target: home
+                target: login
 
     encoders:
         App\Entity\Participant:
@@ -30,3 +30,4 @@ security:
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/sortie, roles: IS_AUTHENTICATED_FULLY }
