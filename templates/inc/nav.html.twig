@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li><a href="{{ path('login') }}">Accueil</a> </li>
-        <li><a href="{{ path('home') }}">Mon profil</a></li>
+        <li><a href="{{ path('Profil') }}">Mon profil</a></li>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <li><a href="{{ path('logout') }}">Deconnexion</a> </li>
         {% else %}
