@@ -25,5 +25,13 @@ class DefaultController extends AbstractController
         return $this->render("home.html.twig");
     }
 
+    /**
+     * @Route ("/logout", name="logout")
+     */
+    public function logout()
+    {
+
+    }
+
 
 }
