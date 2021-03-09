@@ -26,5 +26,4 @@ class DefaultController extends AbstractController
     }
 
 
-
 }
