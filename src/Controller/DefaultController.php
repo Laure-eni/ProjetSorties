@@ -8,7 +8,7 @@ class DefaultController extends AbstractController
 {
 
     /**
-     * @Route ("/", name="login")
+     * @Route ("/login", name="login")
      */
 
     public function login()
@@ -16,14 +16,15 @@ class DefaultController extends AbstractController
         return $this->render("connexion.html.twig");
     }
 
-    /**
-     * @Route ("/home", name="home")
-     */
-
-    public function home()
-    {
-        return $this->render("home.html.twig");
-    }
+//    /**
+//     * @Route ("/home", name="home")
+//     */
+//
+//    public function home()
+//    {
+//
+//        return $this->render("home.html.twig");
+//    }
 
     /**
      * @Route ("/logout", name="logout")
