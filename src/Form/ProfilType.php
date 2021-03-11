@@ -17,7 +17,8 @@ class ProfilType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo',TextType::class)
+         
+            ->add('pseudo',TextType::class, ['required'=>false])
             ->add('Prenom',TextType::class)
             ->add('Nom', TextType::class)
             ->add('telephone',TextType::class)

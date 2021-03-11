@@ -6,6 +6,7 @@ use App\Repository\ParticipantRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 /**
  * @ORM\Table(name="Participant")
  * @ORM\Entity(repositoryClass=ParticipantRepository::class)
@@ -50,38 +51,6 @@ class Participant implements UserInterface
     private $motDePasse;
 
     /**
-     * @return mixed
-     */
-    public function getSortieCreee()
-    {
-        return $this->sortieCreee;
-    }
-
-    /**
-     * @param mixed $sortieCreee
-     */
-    public function setSortieCreee($sortieCreee): void
-    {
-        $this->sortieCreee = $sortieCreee;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInscription()
-    {
-        return $this->inscription;
-    }
-
-    /**
-     * @param mixed $inscription
-     */
-    public function setInscription($inscription): void
-    {
-        $this->inscription = $inscription;
-    }
-
-    /**
      * @ORM\Column (type="boolean")
      */
     private $administrateur;
@@ -100,8 +69,6 @@ class Participant implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\Sortie", mappedBy="inscrits")
      */
     private $inscription;
-
-
 
     /**
      * @return mixed
@@ -206,6 +173,39 @@ class Participant implements UserInterface
     {
         return $this->administrateur;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSortieCreee()
+    {
+        return $this->sortieCreee;
+    }
+
+    /**
+     * @param mixed $sortieCreee
+     */
+    public function setSortieCreee($sortieCreee): void
+    {
+        $this->sortieCreee = $sortieCreee;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInscription()
+    {
+        return $this->inscription;
+    }
+
+    /**
+     * @param mixed $inscription
+     */
+    public function setInscription($inscription): void
+    {
+        $this->inscription = $inscription;
+    }
+
 
     /**
      * @param mixed $administrateur

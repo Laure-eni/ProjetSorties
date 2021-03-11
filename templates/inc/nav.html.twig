@@ -1,11 +1,13 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('login') }}">Accueil</a> </li>
-        <li><a href="{{ path('Profil') }}">Mon profil</a></li>
+<div class="nav"><nav>
+      <ul class="menu">
+            <li><a  class="LienLog" href="{{ path('login') }}">Accueil</a> </li>
+            <li><a class="LienProfil" href="{{ path('Profil') }}">Mon profil</a></li>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-        <li><a href="{{ path('logout') }}">Deconnexion</a> </li>
+            <li><a class="LienDeco" href="{{ path('logout') }}">Deconnexion</a></li>
+            <li> <a class="LienSorite" href="{{ path('sortie') }}">Les sorties prévues</a></li>
         {% else %}
-        <li><a href="{{ path('login') }}">Connexion</a> </li>
+            <li><a href="{{ path('login') }}">Connexion</a> </li>
         {% endif %}
-    </ul>
-</nav>
+      </ul>
+  </nav>
+</div>

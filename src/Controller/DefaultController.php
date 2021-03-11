@@ -8,7 +8,7 @@ class DefaultController extends AbstractController
 {
 
     /**
-     * @Route ("/login", name="login")
+     * @Route ("/", name="login")
      */
 
     public function login()
