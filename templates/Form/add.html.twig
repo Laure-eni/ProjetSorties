@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ asset("css/app.css") }} ">
+    <h2>Créer une sortie</h2>
+
+    {{ form_start(sortieForm) }}
+    {{ form_widget(sortieForm) }}
+
+
+    <button type="submit">Enregistrer</button>
+    <button type="submit">Publier la sortie</button>
+    <button type="submit">Annuler</button>
+
+    {{ form_end(sortieForm) }}
+{% endblock %}
+{% block title %}Creer une sortie | {{ parent() }}{% endblock %}
