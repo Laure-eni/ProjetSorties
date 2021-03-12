@@ -69,4 +69,8 @@ class Campus
     {
         return $this->id;
     }
+
+    public function __toString() {
+        return $this->nomCampus;
+    }
 }
