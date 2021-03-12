@@ -6,6 +6,7 @@ use App\Data\SearchData;
 use App\Entity\Sortie;
 use App\Form\CreerSortieType;
 use App\Form\SearchForm;
+use App\Repository\EtatRepository;
 use App\Repository\SortieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,15 +39,27 @@ class SortieController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function add(EntityManagerInterface $em)
+    public function add(EntityManagerInterface $em, Request $request, EtatRepository $etatRepo)
     {
         $sortie = new sortie();
+        $sortie->setOrganisateur($this->getUser());
+        $etat = $etatRepo->findOneBy(['libelle'=>'Ouverte']);
+        $sortie->setEtat($etat);
         $sortieForm = $this->createForm(CreerSortieType::class, $sortie);
+
+
+        $sortieForm->handleRequest($request);
+        if ($sortieForm->isSubmitted()) {
+            $em->persist($sortie);
+            $em->flush();
+        }
+
 
         return $this->render('Form/add.html.twig', [
             "sortieForm" => $sortieForm->createView()
         ]);
     }
-
-
 }
+
+
+
