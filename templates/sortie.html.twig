@@ -9,46 +9,70 @@
 <h1 class="home">Bienvenue !</h1><br>
 
 <h2>Les sorties du moment</h2>
-    <div class = "tableau">
-       <table class="table">
-           <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Durée</th>
-                <th>Lieu</th>
-                <th>Date limite d'inscription</th>
-                <th>Informations sur la sortie</th>
-                <th>Campus</th>
-                <th>Organisateur</th>
-                <th>Catégorie</th>
-                <th>Nombre d'inscriptions max</th>
-                <th>Etat</th>
-            </tr>
-           </thead>
 
-           <tbody>
-                {% for sortie in sorties %}
-                   <tr>
-                       <td><b>{{ sortie.nom }}</b></td>
-                       <td>{{ sortie.dateHeureDebut |date("d/m/Y")}}</td>
-                       <td>{{ sortie.duree }}</td>
-                       <td><b>{{ sortie.lieu.nom }}</b> - {{ sortie.lieu.rue }}
+    <div class = "container">
+        <div class = "rechercheForm">
+            {{ form_start(form) }}
+                {{ form_row(form.query) }}
+
+                <h4>Catégories</h4>
+                {{ form_row(form.categories) }}
+
+                <h4>Campus</h4>
+                {{ form_row(form.campus) }}
+
+                <h4>Autres critères</h4>
+                {{ form_row(form.orga) }}
+                {{ form_row(form.inscrit) }}
+                {{ form_row(form.terminee) }} </br>
+
+            <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+
+
+            {{ form_end(form) }}
+        </div>
+
+
+
+        <div class = "tableau">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Date</th>
+                        <th>Durée</th>
+                        <th>Lieu</th>
+                        <th>Date limite d'inscription</th>
+                        <th>Informations sur la sortie</th>
+                        <th>Campus</th>
+                        <th>Organisateur</th>
+                        <th>Catégorie</th>
+                        <th>Nombre d'inscriptions max</th>
+                        <th>Etat</th>
+                    </tr>
+                </thead>
+
+                 <tbody>
+                    {% for sortie in sorties %}
+                     <tr>
+                        <td><b>{{ sortie.nom }}</b></td>
+                        <td>{{ sortie.dateHeureDebut |date("d/m/Y")}}</td>
+                        <td>{{ sortie.duree }}</td>
+                        <td><b>{{ sortie.lieu.nom }}</b> - {{ sortie.lieu.rue }}
                            {{ sortie.lieu.ville.codePostal}} {{sortie.lieu.ville.nom}}
-                       </td>
-                       <td>{{ sortie.dateLimiteInscription |date("d/m/Y") }}</td>
-                       <td>{{ sortie.infosSortie }}</td>
-                       <td>{{ sortie.campusSortie.nomCampus }}</td>
-                       <td>{{ sortie.organisateur.nom }}</td>
-                       <td>{{ sortie.categorie.catName }}</td>
-                       <td>{{ sortie.nbInscriptionsMax }}</td>
-                       <td>{{ sortie.etat.libelle }}</td>
-                   </tr>
-
-                {% endfor %}
-           </tbody>
-       </table>
-
+                        </td>
+                        <td>{{ sortie.dateLimiteInscription |date("d/m/Y") }}</td>
+                        <td>{{ sortie.infosSortie }}</td>
+                        <td>{{ sortie.campusSortie.nomCampus }}</td>
+                        <td>{{ sortie.organisateur.nom }}</td>
+                        <td>{{ sortie.categorie.catName }}</td>
+                        <td>{{ sortie.nbInscriptionsMax }}</td>
+                        <td>{{ sortie.etat.libelle }}</td>
+                     </tr>
+                    {% endfor %}
+                 </tbody>
+            </table>
+         </div>
 
     </div>
 {% endblock %}
