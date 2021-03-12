@@ -1,14 +1,16 @@
 body{
-    background-image: url("bvZIVYNp_400x400.jpg");
-    background-repeat: no-repeat;
-    background-color: lightsteelblue;
+    background-color: lightskyblue;
+    margin: 0;
+    padding: 0;
 }
 
+/*tire du site*/
 h1{
-    margin-left: 235px;
-
+    display: block;
+    text-align: center;
+    letter-spacing: 2px
 }
-
+/*Message " profil modifier" */
 .flash-notice{
     display: block;
     text-align: center;
@@ -17,38 +19,53 @@ h1{
     background-color: lightgreen;
     color: black;
 }
-
+/*Formulaire de modification du profil*/
 .formProfil
 {
-
     position: absolute;
     top: 50%;
     left: 50%;
     width: 450px;
     padding: 75px;
     transform: translate(-50%, -50%);
-    background: lightcyan;
+    background: linear-gradient(lightskyblue, lightsteelblue,lightblue);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 10px 30px rgba(0,0,0,.6);
     border-radius: 10px;
     opacity: 0.75;
-
-
 }
-li
-{
+
+/*Modification des boutons*/
+.btn{
+    cursor: pointer;
+    transform: scale(1);
+    transition-property: transform;
+}
+/*Modification pour l'animation des boutons*/
+.btn:hover{
+    transform: scale(1.15);
+    transition-duration: 200ms;
+}
+
+/*Liste des liens de la nav*/
+li {
     display:inline;
     margin:0 0 0 15px;
     font-family: Caladea;
-
 }
 
 .home{
     display: block;
     text-align: center;
+    letter-spacing: 2px
+}
+.TitreSortie{
 
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    letter-spacing: 2px;
 }
 
+/*Titre de la page profil*/
 .titreProfil{
     display: block;
     text-align: center;
@@ -56,6 +73,7 @@ li
     font-family: Tahoma;
     margin-top: 80px;
     margin-left: 30px;
+
 }
 
 legend {
@@ -63,10 +81,10 @@ legend {
     font-weight: bold;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+/*Pour retirer le soulignement des liens*/
 .LienLog{
     text-decoration: none;
-    color: lightskyblue;
+
 }
 
 .LienProfil{
@@ -88,18 +106,17 @@ legend {
     text-decoration: none;
 
 }
-
+/*Modification pour créer le menu des liens " accueil, connexion etc" */
 .menu{
     display: flex;
+    justify-content: center;
+    text-align: center;
     padding:0;
-    margin-top:-67px;
-    margin-left: 612px;
 }
-
+/*Centrer la modification des liens pour donner un style de bouton*/
 .menu a {
     display: block; /* Transformation en block */
     min-width: 120px; /* Largeur minimale des liens */
-
     margin: 0.5rem; /* Marges externes (1 valeurs = 4 directions) */
     padding: 0.4rem 0; /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
     text-align: center; /* Centrage du texte */
@@ -107,20 +124,64 @@ legend {
     text-decoration: none; /* Suppression du soulignement */
     border: 1px solid black; /* Ajout d'une bordure */
     border-radius: 4px; /* Arrondis des bordures */
+    cursor: pointer;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+/*Animation des liens au passage de la souris */
+.menu a:hover {
+    background-color: lightskyblue;
+    color: black;
+    border-color: black;
+    transform: scale(1.10);
+    transition-duration: 350ms;
 }
 
-.menu a:hover {
+/*Modification du lien en bouton pour créer les sorties*/
+.menuCreerSortie{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding:0;
+    font-size: large;
+    font-weight: bold;
+}
+
+/*Modification du lien créer sorties*/
+.menuCreerSortie a {
+    background-color: steelblue;
+    display: block; /* Transformation en block */
+    min-width: 120px; /* Largeur minimale des liens */
+    margin: 0.5rem; /* Marges externes (1 valeurs = 4 directions) */
+    padding: 0.4rem 0; /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+    text-align: center; /* Centrage du texte */
+    color: black; /* Couleur du texte */
+    text-decoration: none; /* Suppression du soulignement */
+    border-style: double;
+    border-radius: 4px; /* Arrondis des bordures */
+    cursor: pointer;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+/*animation du boutons créer sorties*/
+.menuCreerSortie a:hover {
     background-color: lightcyan;
     color: black;
     border-color: black;
+    transform: scale(1.10);
+    transition-duration: 350ms;
 }
 
-
+/*Modficiation formulaire de connexion */
 .divForm{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 320px;
+    height: 240px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: lightcyan;
@@ -129,16 +190,46 @@ legend {
     border-radius: 10px;
     opacity: 0.75;
 }
-
+/*Titre de la page connexion*/
 .titreLog{
     margin-left: 42%;
 }
 
-footer{
-    margin-top: 600px;
+
+.rechercheForm{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
+.categories{
+    display: inline-block;
 
+}
+
+.campus{
+    display: inline-block;
+}
+
+/* pour modifier le header, avec le logo eni et la barre blanche */
+header{
+
+    margin-top: -21px;
+    background-color: #FFFFFF;
+    background-image: url("bvZIVYNp_400x400.jpg");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    height: 140px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+
+footer{
+    margin-top: 580px;
+    width: 110px;
+
+
+}
 
 
 

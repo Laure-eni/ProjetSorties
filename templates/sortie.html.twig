@@ -6,34 +6,34 @@
             padding : 2px 5px;
         }
     </style>
-<h1 class="home">Bienvenue !</h1><br>
+<h1 class="TitreSortie">Bienvenue !</h1><br>
 
-<h2>Les sorties du moment</h2>
+
 
     <div class = "container">
         <div class = "rechercheForm">
             {{ form_start(form) }}
                 {{ form_row(form.query) }}
 
-                <h4>Catégories</h4>
+                <div class="categories"><h4>Catégories</h4>
                 {{ form_row(form.categories) }}
+                </div>
 
-                <h4>Campus</h4>
+                <div class="campus"><h4>Campus</h4>
                 {{ form_row(form.campus) }}
+                </div>
 
-                <h4>Autres critères</h4>
+                <div class="AutresCriteres"><h4>Autres critères</h4>
                 {{ form_row(form.orga) }}
                 {{ form_row(form.inscrit) }}
-                {{ form_row(form.terminee) }} </br>
+                {{ form_row(form.terminee) }}
+                </div><br>
 
             <button type="submit" class="btn btn-primary w-100">Filtrer</button>
 
-
             {{ form_end(form) }}
         </div>
-
-
-
+        <h2>Les sorties du moment</h2>
         <div class = "tableau">
             <table class="table">
                 <thead>
@@ -51,7 +51,6 @@
                         <th>Etat</th>
                     </tr>
                 </thead>
-
                  <tbody>
                     {% for sortie in sorties %}
                      <tr>
@@ -73,8 +72,6 @@
                  </tbody>
             </table>
          </div>
-
-        <a  class="creerSortie" href="{{ path('creation_sortie') }}">Creer sortie</a>
-
+        <br><div class="menuCreerSortie"><a class="creerSortie" href="{{ path('creation_sortie') }}">Creer sortie</a></div>
     </div>
 {% endblock %}
